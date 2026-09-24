@@ -97,19 +97,130 @@ classDiagram
 
 
 Start of menu program:
-![screenshot shows preloading, welcome, initial box contents, and main menu](https://i.imgur.com/6lmMVtu.png)
+```
+Preloading Pokemon Box...
+...Done!
+
+---------------------------
+| Welcome to Pokemon Box! |
+---------------------------
+
+This box has 6 Pokemon, which are:
+    01. Pikachu [Electric]
+    02. Bulbasaur [Grass - Poison]
+    03. Charmleon [Fire]
+    04. Squirtle [Water]
+    05. Butterfree [Bug - Flying]
+    06. Pidgeotto [Normal - Flying]
+
+MAIN MENU
+What would you like to do?
+    1) Add a New Pokemon
+    2) List All Pokemon
+    3) Exit Program
+
+Enter choice number>
+```
 
 Invalid integer choice error handling:
-![screenshot handling "woops" entered instead of integer](https://i.imgur.com/cuq1gGy.png)
+```
+MAIN MENU
+What would you like to do?
+    1) Add a New Pokemon
+    2) List All Pokemon
+    3) Exit Program
+
+Enter choice number> woops
+
+Invalid choice, please pick a valid option as an integer.
+```
 
 Invalid Pokémon information error handling (should work similarly for illegal name or type):
-![screenshot handling illegal Pokémon type](https://i.imgur.com/lQIgHv9.png)
+```
+MAIN MENU
+What you would like to do?
+    1) Add a New Pokemon
+    2) List All Pokemon
+    3) Exit Program
+
+Enter choice number> 1
+
+Enter Pokemon Info to be added:
+Enter Pokemon Name> Scyther
+Enter Pokemon Type #1> Buggy
+Enter Pokemon Type #2 (none if no second type)> none
+
+Invalid name or types for Pokemon entered. Please make sure types are valid (or enter 'none' for type 2).
+
+Here’s the list of valid types to help:
+[Normal, Fire, Fighting, Water, Flying, Grass, Poison, Electric, Ground, Psychic, Rock, Ice,
+Bug, Dragon, Ghost, Dark, Steel, Fairy]
+```
 
 Invalid add to PokemonBox error handling (already exists):
-![screenshot handling Pokémon input that's already in box](https://i.imgur.com/OwH1pgB.png)
+```
+MAIN MENU
+What would you like to do?
+    1) Add a New Pokemon
+    2) List All Pokemon
+    3) Exit Program
+
+Enter choice number> 1
+
+Enter Pokemon Info to be added:
+Enter Pokemon Name> Squirtle
+Enter Pokemon Type #1> Water
+Enter Pokemon Type #2 (none if no second type)> none
+
+ERROR! Pokemon already exists in box!
+Please remember our regions sustainability efforts in reducing habitat loss and environmental impacts.
+If you'd like to learn more, please go to https://youtu.be/GwafCvCeE-w
+```
 
 Valid Pokémon added successfully:
-![screenshot of valid (unique) pokemon added to box](https://i.imgur.com/ZaKba2H.png)
+```
+MAIN MENU
+What would you like to do?
+    1) Add a New Pokemon
+    2) List All Pokemon
+    3) Exit Program
+
+Enter choice number> 1
+
+Enter Pokemon Info to be added:
+Enter Pokemon Name> Mewtwo
+Enter Pokemon Type #1> Psychic
+Enter Pokemon Type #2 (none if no second type)> none
+
+Mewtwo added!
+
+MAIN MENU
+What would you like to do?
+1) Add a New Pokemon
+2) List All Pokemon
+3) Exit Program
+
+Enter choice number> 2
+
+This box has 7 Pokemon, which are:
+    01. Pikachu [Electric]
+    02. Bulbasaur [Grass - Poison]
+    03. Charmleon [Fire]
+    04. Squirtle [Water]
+    05. Butterfree [Bug - Flying]
+    06. Pidgeotto [Normal - Flying]
+    07. Mewtwo [Psychic]
+```
 
 Exiting program option:
-![screenshot of exit program option entered](https://i.imgur.com/fLQbFtd.png)
+```
+MAIN MENU
+What would you like to do?
+    1) Add a New Pokemon
+    2) List All Pokemon
+    3) Exit Program
+
+Enter choice number> 3
+
+Thank you for using the Pokemon Box program :D see you later!
+```
