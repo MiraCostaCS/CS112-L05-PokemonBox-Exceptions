@@ -5,6 +5,78 @@ Welcome to the wonderful world of Pokémon! We want to keep the world wonderful,
 
 The Pokémon Box technology needs upgrading, the code provided does not limit the addition of Pokémon with the same name. Create a custom exception class, called `PokemonAlreadyExistsException` that can be thrown when the `add` method in `PokemonBox`. The constructors also need upgrading to throw an exception, rather than shutdown the program. An `IllegalArgumentException` should be used in the `Pokemon` class constructors.
 
+## UML Diagram
+Note the following UML diagram is of the *completed* project. This can help you understand the provided code but note that the differences/missing parts from it are described in the requirements section below.
+```mermaid
+---
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+
+    Exception <|-- PokemonAlreadyExistsException
+    PokemonBox "1" o-- "*" Pokemon : contains
+
+    Pokemon ..> IllegalArgumentException : throws
+    PokemonBox ..> IllegalArgumentException : throws
+    PokemonBox ..> IndexOutOfBoundsException : throws
+    PokemonBox ..> PokemonAlreadyExistsException : throws
+
+    class PokemonAlreadyExistsException {
+        + PokemonAlreadyExistsException()
+        + PokemonAlreadyExistsException(message : String)
+    }
+
+    class Pokemon {
+        + TYPES : String[]$
+        + DEFAULT_NAME : String$
+        + DEFAULT_TYPE1 : String$
+        + DEFAULT_TYPE2 : String$
+        - name : String
+        - type1 : String
+        - type2 : String
+
+        + Pokemon(name : String, type1 : String, type2 : String)
+        + Pokemon(name : String, type : String)
+        + Pokemon()
+        + Pokemon(p : Pokemon)
+        
+        + setName(name : String) boolean
+        + setType1(type1 : String) boolean
+        + setType2(type2 : String) boolean
+        + setAll(name : String, type1 : String, type2 : String) boolean
+        + getName() String
+        + getType1() String
+        + getType2() String
+        + toString() String
+        + equals(other : Object) boolean
+
+        + toRow() String
+        - isValidType(type : String) boolean
+        - toTitleCase(s : String) String
+        - toTitleCaseWord(word : String) String
+    }
+
+    note for PokemonBox "Note: this is not a model class but a container for model classes, you'll learn more about good encapsulation for these kinds of classes in a Data Structures course!"
+    class PokemonBox {
+        + DEFAULT_CAPACITY : int$
+        - caught : Pokemon[]
+        - numCaught : int
+
+        + PokemonBox(caught : Pokemon[*])
+        + PokemonBox()
+
+        + getLocation(pokemonName : String) int
+        + getPokemon(location : int) Pokemon
+        + getNumCaught() int
+        + isEmpty() boolean
+        + hasPokemon(pokemonName : String) boolean
+        + add(newPoke : Pokemon) void
+        + toString() String
+        - deepCopyArray(p : Pokemon[*], newLength : int) Pokemon[*]
+    }
+```
 
 ## **List of Requirements:**
 - `Pokemon.java`:
